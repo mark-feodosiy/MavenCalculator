@@ -20,14 +20,9 @@ public class CalculateService {
         return (num1 + " * " + num2 + " = " + (num1 * num2));
     }
   //  @GetMapping(path = "/calculator/divide")
-    public String calculateQuotient (Integer num1, Integer num2) {
-      if ((num1 == null) || (num2 == null)) {
-          return "Ошибка. Не заданы значения!";
-      }
-        if (num2 != 0) {
-        return (num1 + " / " + num2 + " = " + (num1 / num2));
-        }
-        else return "Ошибка. На ноль делить нельзя!";
+    public String calculateQuotient (int num1, int num2) {
+        return (double) num1 + " / " + num2 + " = " + (num1 / num2);
+
     }
 
 }

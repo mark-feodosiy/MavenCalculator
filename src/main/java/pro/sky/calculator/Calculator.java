@@ -1,13 +1,15 @@
 package pro.sky.calculator;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping ("/calculator")
 public class Calculator {
 
-    @GetMapping(path = "/calculator")
+    @GetMapping()
         public String calculator () {
         return "Добро пожаловать в калькулятор";
     }
@@ -16,21 +18,30 @@ public class Calculator {
         this.calculateService = calculateService;
     }
 
-    @GetMapping(path = "/calculator/plus")
+    @GetMapping(path = "/plus")
         public String calculateSum (@RequestParam("num1") int num1, @RequestParam ("num2") int num2) {
         return calculateService.calculateSum (num1, num2);
     }
-    @GetMapping(path = "/calculator/minus")
+    @GetMapping(path = "/minus")
     public String calculateDifference (@RequestParam ("num1") int num1, @RequestParam ("num2") int num2) {
         return calculateService.calculateDifference (num1, num2);
     }
-    @GetMapping(path = "/calculator/multiply")
+    @GetMapping(path = "/multiply")
     public String calculateProduct (@RequestParam ("num1") int num1, @RequestParam ("num2") int num2) {
         return calculateService.calculateProduct (num1, num2);
     }
-    @GetMapping(path = "/calculator/divide")
-    public String calculateQuotient (@RequestParam ("num1") int num1, @RequestParam ("num2") int num2) {
-        return calculateService.calculateQuotient (num1, num2);
+    @GetMapping(path = "/divide")
+    public String calculateQuotient (@RequestParam (value = "num1", required = false) Integer num1, @RequestParam (value = "num2", required = false) Integer num2) {
+        if ((num1 == null) || (num2 == null)) {
+            return "Ошибка. Не заданы значения!";
+        }
+        if (num2 != 0) {
+            return calculateService.calculateQuotient (num1, num2);
+        }
+        else return "Ошибка. На ноль делить нельзя!";
+
+
+
     }
 
 }
