@@ -32,4 +32,5 @@ public class Calculator {
     public String calculateQuotient (@RequestParam ("num1") int num1, @RequestParam ("num2") int num2) {
         return calculateService.calculateQuotient (num1, num2);
     }
+
 }
