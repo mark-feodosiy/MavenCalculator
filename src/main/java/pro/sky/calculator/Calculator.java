@@ -14,4 +14,16 @@ public class Calculator {
         public String calculateSum (@RequestParam ("num1") int num1, @RequestParam ("num2") int num2) {
         return (num1 + " + " + num2 + " = " + (num1 + num2));
     }
+    @GetMapping(path = "/calculator/minus")
+    public String calculateDifference (@RequestParam ("num1") int num1, @RequestParam ("num2") int num2) {
+        return (num1 + " - " + num2 + " = " + (num1 - num2));
+    }
+    @GetMapping(path = "/calculator/multiply")
+    public String calculateProduct (@RequestParam ("num1") int num1, @RequestParam ("num2") int num2) {
+        return (num1 + " * " + num2 + " = " + (num1 * num2));
+    }
+    @GetMapping(path = "/calculator/divide")
+    public String calculateQuotient (@RequestParam ("num1") int num1, @RequestParam ("num2") int num2) {
+        return (num1 + " / " + num2 + " = " + (num1 / num2));
+    }
 }
