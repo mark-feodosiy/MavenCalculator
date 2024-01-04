@@ -1,5 +1,5 @@
 package pro.sky.calculator;
-//Домашка задача калькулятор
+//Домашняя задача калькулятор
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

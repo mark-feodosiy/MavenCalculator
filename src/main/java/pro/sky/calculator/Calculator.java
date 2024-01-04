@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping ("/calculator")
 public class Calculator {
-
     @GetMapping()
         public String calculator () {
         return "Добро пожаловать в калькулятор";
